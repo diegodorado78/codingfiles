@@ -1,0 +1,227 @@
+RESTRICCIONES
+Implementación de restricciones
+Valores únicos
+
+Como sabemos, si nosotros necesitamos validar valores únicos usaremos el constraint UNIQUE.
+
+CREATE TABLE usuarios( 
+  usuario_id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+  nombre VARCHAR(50) UNIQUE
+);
+
+Otra forma de expresarlo, es de la siguiente manera.
+
+CREATE TABLE usuarios( 
+  usuario_id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+  nombre VARCHAR(50),
+  CONSTRAINT UNIQUE (nombre)
+);
+
+    La palabra CONSTRAINT es opcional, sin embargo, por temas de legibilidad recomiendo colocarla.
+
+Valores mútiples columnas
+
+Si necesitamos validar el valor único de una combinación de columnas lo haremos de la siguiente manera.
+
+En este caso queremos validar que la combinación de nombre, apellido y matricula sean unicas en la tabla.
+
+CREATE TABLE usuarios( 
+  usuario_id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  nombre VARCHAR(50),
+  apellido VARCHAR(50),
+  matricula VARCHAR(10),
+  CONSTRAINT unique_combinacion UNIQUE (nombre, apellido, matricula),
+  PRIMARY KEY (usuario_id)
+);
+
+Llaves primarias
+
+Existen un par de formas con las cuales nosotros podemos definir un campo como una llave primaria.
+
+CREATE TABLE usuarios( 
+  usuario_id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT
+);
+
+o
+
+CREATE TABLE usuarios( 
+  usuario_id INT UNSIGNED AUTO_INCREMENT,
+  PRIMARY KEY(usuario_id)
+);
+-------------<>--------------------    -------------<>--------------------
+
+MODIFICAR TABLAS
+Nosotros podemos modificar la definición de una tabla una vez esta se haya creado, para ello, nos apoyaremos de la sentencia ALTER TABLE.
+
+Aquí un listado de algunas modificaciones que podemos realizar (Las más comunes).
+
+Renombrar tabla.
+
+    Renombrar la tabla usuarios por users.
+
+ALTER TABLE usuarios RENAME users;
+
+Agregar una nueva columna.
+
+    Agregar a la tabla usuarios, la columna email de tipo VARCHAR con máximo de 50 caracteres.
+
+ALTER TABLE usuarios ADD email VARCHAR(50);
+
+Agregar una nueva columna con constraints.
+
+    Agregar a la tabla usuarios, la columna email, validando su presencia.
+
+ALTER TABLE usuarios ADD email VARCHAR(50) NOT NULL DEFAULT '';
+
+    Agregar a la tabla usuarios, la columna email, validando su valor único.
+
+ALTER TABLE tabla ADD columna VARCHAR(50) UNIQUE;
+
+Eliminar una columna
+
+    Eliminar la columna email de la tabla usuarios.
+
+ALTER TABLE usuarios DROP COLUMN email;
+
+Modificar el tipo de dato de una columna
+
+    Modificar el tipo de dato de la columna teléfono, (tabla usuarios) de INT a VARCHAR, máximo 50 caracteres.
+
+ALTER TABLE usuarios MODIFY telefono VARCHAR(50);
+
+Generar una llave primaria.
+
+    Generar una llave primaria a la tabla usuarios.
+
+ALTER TABLE usuarios ADD id INT UNSIGNED NOT NULL AUTO_INCREMENT, ADD PRIMARY KEY (id);
+
+Agregar llave foránea.
+
+    Agregar una llave foranea a la tabla usuarios, con referencia a la tabla grupos.
+
+ALTER TABLE usuarios ADD FOREIGN KEY(grupo_id) REFERENCES grupos(grupo_id);
+
+Eliminar llaves foráneas
+
+    Eliminar la llave foranea grupo_id de la tabla usuarios.
+
+    ALTER TABLE usuarios DROP FOREIGN KEY grupo_id;
+
+    -------------<>--------------------    -------------<>--------------------
+
+
+
+
+
+
+    
+
+Autores
+
+    Obtener el nombre de los autores cuya fecha de nacimiento sea posterior a 1950
+
+    Obtener la el nombre completo y la edad de todos los autores.
+
+    Obtener el nombre completo de todos los autores cuyo último libro publicado sea posterior al 2005
+
+    Obtener el id de todos los escritores cuyas ventas en sus libros superen el promedio.
+
+    Obtener el id de todos los escritores cuyas ventas en sus libros sean mayores a cien mil ejemplares.
+
+Funciones
+
+    Crear una función la cual nos permita saber si un libro es candidato a préstamo o no. Retornar “Disponible” si el libro posee por lo menos un ejemplar en stock, en caso contrario retornar “No disponible.”
+    -------------<>--------------------     -------------<>--------------------
+
+
+Ejercicios parte 2
+
+
+Aquí un listado de ejercicios con los cuales puedes practicar a partir de los datos que se encuentran en el archivo sentencias.sql
+
+    Tu puedes agregar más datos (reales) si así tú lo deseas. Si aun no poses el archivo puedes descargarlo en el siguiente link
+
+    Obtener a todos los usuarios que han realizado un préstamo en los últimos diez días.
+
+    Obtener a todos los usuarios que no ha realizado ningún préstamo.
+
+    Listar de forma descendente a los cinco usuarios con más préstamos.
+
+    Listar 5 títulos con más préstamos en los últimos 30 días.
+
+    Obtener el título de todos los libros que no han sido prestados.
+
+    Obtener la cantidad de libros prestados el día de hoy.
+
+    Obtener la cantidad de libros prestados por el autor con id 1.
+
+    Obtener el nombre completo de los cinco autores con más préstamos.
+
+    Obtener el título del libro con más préstamos esta semana.
+
+    -------------<>--------------------    -------------<>--------------------
+
+
+Motores de almacenamiento en MySQL
+
+Afortunadamente para nosotros, los administradores de base de datos, MySQL nos permite trabajar con diferentes motores de almacenamiento, entre los que destacan MyISAM e InnoDB.
+
+¿Motor de almacenamiento?, ¿Qué es eso? 🤔, verás, un motor de almacenamiento se el encargado de almacenar, gestionar y recuperar toda la información de una tabla. Es por ello que es de suma importancia que nosotros conozcamos la existencia de estos motores, cuales son sus principales diferencias y en qué casos es bueno utilizar uno u otro, de esta forma que podamos garantizar un mejor performance en nuestras aplicaciones. 😉
+
+Para que nosotros conozcamos que motor de almacenamiento podemos utilizar basta con ejecutar la siguiente sentencia en nuestra terminal.
+
+SHOW ENGINES;
+
+Obtendremos el siguiente listado.
+
+    InnoDB
+    MRG_MYISAM
+    MEMORY
+    BLACKHOLE
+    MyISAM
+    CSV
+    ARCHIVE
+    PERFORMANCE_SCHEMA
+    FEDERATED
+
+En esta ocasión nos centraremos en explicar los dos motores de almacenamiento más populares, me refiero a MyISAM e InnoDB.
+
+MyISAM es el motor por default de MySQL. Una de las principales ventajas de este motor es la velocidad al momento de recuperar información. MyISAM es una excelente opción cuando las sentencias predominantes en nuestra aplicación sean de consultas. Esta es una de las razones por las cuales MyISAM es tan popular en aplicaciones web.
+
+    Si tu aplicación necesita realizar búsquedas full-text MyISAM es un mejor opcion.
+
+La principal desventajas de MyISAM recae en la ausencia de atomocidad, ya que no se comprueba la integridad referencial de los datos. Se gana tiempo en la inserción, sí, pero perdemos confiabilidad en los datos.
+
+Por otro lado tenemos el motor de almacenamiento InnoDB. La principal ventaja de este motor recae en la seguridad de las operaciones. InnoDB permite la ejecución de transacciones, esto nos garantiza que los datos se persisten de forma correcta y si existe algún error podamos revertir todos los cambios realizados.
+
+Algo interesante a mencionar sobre InnoDB es que este motor realiza un bloqueo total sobre un tabla cuando es ejecutada una se las siguientes sentencias.
+
+    Select
+    Insert
+    Update
+    Delete
+
+Si deseamos trabajar con transacción y la integridad de los datos sea crucial nuestra mejor opción será InnoDB, por otro lado, sí lo que deseamos es una mayor rapidez al momento de obtener información será necesario utilizar MyISAM.
+Gestión
+
+Si nosotros así lo deseamos podemos cambiar el motor de almacenamiento. Existen dos formas de hacer esto. La primera, es modificar el archivo my.cnf.
+
+[mysqld]
+default-storage-engine = innodb
+
+La segunda forma es hacerlo directamente desde nuestra sección, basta con ejecutar la siguiente sentencia.
+
+SET storage_engine=INNODB;
+
+En ambos casos modificamos el motor de almacenamiento de MyISAM a InnoDB.
+
+Si nosotros deseamos conocer qué motor de almacenamiento utiliza una tabla en particular, podemos hacerlo ejecutando la siguiente sentencia.
+
+SHOW TABLE STATUS WHERE `Name` = 'tabla' \G;
+
+Si deseamos crear una tabla utilizando un motor en particular, debemos seguir la siguiente estructura.
+
+CREATE TABLE tabla_innodb (id int, value int) ENGINE=INNODB;
+CREATE TABLE tabla_myisam (id int, value int) ENGINE=MYISAM;
+CREATE TABLE tabla_default (id int, value int);
+

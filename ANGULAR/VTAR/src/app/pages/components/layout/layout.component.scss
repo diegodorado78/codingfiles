@@ -1,0 +1,21 @@
+.sidenav__container {
+  width: 100%;
+  margin:0 auto;
+  background-color: transparent;
+}
+
+.sidenav__content {
+  display: flex;
+  height: 100%;
+  width: 110px;
+  padding: 5px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  a{
+    width: 100%;
+  }
+}
+
+@media (min-width:720px) {
+}

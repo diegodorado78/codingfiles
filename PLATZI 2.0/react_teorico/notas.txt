@@ -1,0 +1,16 @@
+NOTAS DEL CURSO REACT_TEORICO
+Create-react-app sustituido por:
+npx create-react-app my-app
+cd my-app
+npm start
+babel y webpack estan preconfigurados y escondidos
+
+when ready for deploy
+npm run build
+// ver origen del repo
+git remote -v
+//cambiar origen de https a ssh
+git remote set-url origin git@github.com:diegodorado78/platzi-badges.git
+bootstrap
+npm install bootstrap
+npm install md5 //para convertir los emails en hashes

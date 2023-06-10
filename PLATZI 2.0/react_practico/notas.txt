@@ -1,0 +1,25 @@
+ crear py: npx create-react-app holamundo 
+ npm init - y para iniciar proyecto con npm => crea el package.json con la info del py
+
+  //py desde cero
+  git init
+  npm init -y
+  npm install react react-dom
+ npm install @babel/core babel-loader @babel/preset-env @babel/preset-react --save-dev
+ npm install webpack webpack-cli html-webpack-plugin html-loader --save-dev
+ npm install --save-dev webpack-dev-server
+ npm install --save-dev mini-css-extract-plugin css-loader node-sass sass-loader
+npm install --save-dev eslint babel-eslint eslint-config-airbnb eslint-plugin-import eslint-plugin-react eslint-plugin-jsx-a11y
+npm install --save-dev file-loader
+sudo  ppm install json-server -g
+npm install prop-types
+CONFIGURAR GITHUB PAHES PARA REACT
+npm install --save-dev gh-pages
+AGREGO ESTO ARRIBA DE NAME
+  "homepage":"https://diegodorado78.github.io/videoPlayerReact"
+AGREGO LOS SCRIPTS
+ "predeploy":"npm run build",
+    "deploy": "gh-pages -d build o dis" depende de como se llame la carpeta
+EN TERMINAL
+npm run build
+Ppm run deploy

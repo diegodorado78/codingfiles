@@ -1,0 +1,33 @@
+.nav__container{
+    display: grid;
+    grid-template-columns: repeat(8,1fr);
+    background-color: #E4E4E4;
+    height: 5vh;
+    color: #272a3a;
+    font-size: 1.7rem;
+    font-weight: 500;
+
+    .nav__div1{
+    grid-column: 1/2;
+    a{
+        background-color: transparent;
+        .back__icon{
+            width: 80%;
+            height: 80%;
+            border-radius: 50%;
+            border: none;
+            margin: 5%;
+            color:#272a3a
+        }
+    }
+    }
+    .nav__div2{ grid-column: 2/8;}
+    .nav__div3{ grid-column: 8/9;}   
+   }
+   
+   @media (min-width: 768px) {
+    .nav__container{
+        font-size: 2rem;
+    }
+   }
+

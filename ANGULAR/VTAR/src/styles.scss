@@ -1,0 +1,163 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+$charts2-primary: mat-palette($mat-indigo);
+$charts2-accent: mat-palette($mat-pink, A200, A100, A400);
+// The warn palette is optional (defaults to red).
+$charts2-warn: mat-palette($mat-red);
+// Create the theme object (a Sass map containing all of the palettes).
+$charts2-theme: mat-light-theme($charts2-primary, $charts2-accent, $charts2-warn);
+// Include theme styles for core and each component used in your app.
+@include angular-material-theme($charts2-theme);
+
+@import 'variables' ;
+
+html, body {
+  font-size: 62.5%;  ;
+  color: $primary-color;
+  background:$background-color2;
+  font-family: 'Roboto';
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  a{
+    text-decoration: none;
+    color:$primary-color ;
+  }
+
+  li{
+    list-style: none;
+   }
+
+  ul{
+    padding:0
+    }
+ }
+
+.container{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: $background-color2 ;
+
+  }
+
+// Global styles for charts
+.container2{
+  display: flex;
+  background: $background-color;
+  flex-direction: column;
+  border-radius: 5px;
+  width: 90%;
+  height: 100%;
+  margin:  5% auto;
+  padding: auto 0;
+  align-items: center;
+  justify-items: center;
+  box-shadow: 5px 5px 20px 2px #ccc;}
+
+.mat-typography{
+   h1{
+   margin: 10px auto;
+   text-align: center;
+   font-weight: bold;
+  }
+
+}
+
+.charts__container{
+  display: grid;
+  grid-template-columns:repeat(1,1fr) ;
+   width: 90%;
+   height: 90%;
+   margin:auto 5%;
+ }
+
+ .chart__container{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  width:98%;
+  height: 100%;
+  margin: auto ;
+  position: relative;
+  border: 1px solid $tertiary-color;
+ }
+
+ mat-card{
+  margin: 5px auto;
+  box-shadow: 5px 5px 20px 2px red;
+
+
+   mat-card-header{
+    justify-content: center;
+    }
+ }
+
+  .button-container{
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   height: 20%;
+   margin: 10px auto;
+
+    button{
+    width:auto;
+    height: auto;
+    font-size: 1.2rem;
+    padding: 1px 5px;
+    margin: auto 10px;
+    }
+     p{
+    margin: 0px;
+     }
+   }
+
+ .mat-bco-activated{
+  background-color: $primary-color;
+  color: $secondary-color;
+}
+//styles for the chart zoom slider
+::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+  background-color: $primary-color;
+}
+
+::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+  background-color: $primary-color;
+}
+
+ @media (min-width: 768px) {
+  .container{
+  width: 90%;
+  height: 100%;
+  margin: auto;
+  }
+
+  .container2 {
+    width: 40%;
+    height: 100%;
+    margin: 10px auto;
+  }
+
+  .charts__container{
+    display:flex;
+    flex-flow:wrap ;
+    width: 90%;
+    justify-content: center;
+  }
+
+  mat-card{
+    padding: 0;
+    width: 100%;
+    max-width: 500px;
+    margin: 15px;
+    }
+    .chart__container{
+      width:100%;
+      height:40vh;
+     }
+  }
+
+

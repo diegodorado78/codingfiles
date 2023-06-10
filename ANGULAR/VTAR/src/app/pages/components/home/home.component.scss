@@ -1,0 +1,35 @@
+.button__container{
+  width: 50%;
+  height: 80vh;
+  margin: 10% auto;
+}
+a{
+display: flex;
+flex-direction: column;
+align-content: center;
+border: 3px solid black;
+width: 150px;
+height: 150px;
+border-radius: 20px;
+margin:  10% auto;
+background-color: white;
+padding: auto;
+text-decoration: none;
+font-weight: bold;
+font-size: x-large;
+span{
+margin: auto;
+}
+}
+@media (min-width: 768px) {
+  .button__container{
+    height: 71vh;
+    margin: auto;
+  }
+ a{
+   max-width: 200px;
+   max-height: 200px;
+   margin: 5% auto;
+ }
+
+}

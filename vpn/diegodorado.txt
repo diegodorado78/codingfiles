@@ -1,0 +1,8 @@
+
+openvpn3 session-start --config BCOpfSense-UDP4-1194-did-config.ovpn 
+did
+BCONASdid#_7801
+sudo killall openvpn
+openvpn3 sessions-list
+openvpn3 session-manage --session-path /net/openvpn/v3/sessions/repl@c3 --disconnect
+

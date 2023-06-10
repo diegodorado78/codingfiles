@@ -1,0 +1,10 @@
+<div class="nav__container">
+    <div class="nav__div1" > 
+        <a  *ngIf="!isHomeActivated()" mat-menu-item (click)="goBack()"> <mat-icon class="back__icon" > arrow_back </mat-icon> </a>
+    </div>
+    <div class="nav__div2" > 
+        <app-line-info *ngIf="iskpisRouteActivated()" ></app-line-info>
+    </div>
+    <div class="nav__div3" > 
+    </div>
+</div>

@@ -1,0 +1,20 @@
+<mat-card>
+
+  <mat-card-header>
+      <mat-card-title >{{chartTitle}}</mat-card-title>
+  </mat-card-header>
+
+   <mat-card-content>
+
+    <div class="chart__container" >
+      <canvas id="chart2"  height="400px"></canvas>
+    </div>
+
+    <div class="button-container">
+      <p>Zoom: <strong>{{stateMessage}}</strong><br> <mat-slide-toggle id="enableButton2"(click)="enableZoom()"></mat-slide-toggle> </p>
+      <button mat-button color="bco-activated" (click)="resetZoom()"  >Reset Zoom </button>
+    </div>
+    
+   </mat-card-content>
+
+</mat-card>

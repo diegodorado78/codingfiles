@@ -1,0 +1,31 @@
+<mat-toolbar >
+ <mat-toolbar-row class="layout__header">
+
+  <div class="header__menu-icon">
+  <button type="button" mat-button (click)="toggleMenu(showMenu)"><mat-icon>menu</mat-icon></button>
+  </div>
+
+   <!-- bruckner img -->
+      <div class="header__nav_logo ">
+      <a routerLink="/home">
+        <img [src]="bcoLogo" alt="bruckner_logo">
+      </a>
+      </div>
+
+       <mat-icon (click)="openDialog()" class="header__notification-icon" matBadgeSize="small">notifications</mat-icon>
+       <!-- user menu -->
+       <div class="user__container">
+        <mat-icon class="header__user-icon" matBadgeSize="small" mat-button [matMenuTriggerFor]="menu">person</mat-icon>
+
+        <mat-menu #menu="matMenu" xPosition="after" yPosition="above" class="myMenu">
+         <button mat-menu-item>Edit Profile</button>
+         <button mat-menu-item>Settings</button>
+         <button mat-menu-item>Sign Out</button>
+       </mat-menu>
+
+       </div>
+
+</mat-toolbar-row>
+</mat-toolbar>
+
+

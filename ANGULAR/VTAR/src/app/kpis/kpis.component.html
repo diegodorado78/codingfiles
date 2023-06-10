@@ -1,0 +1,7 @@
+
+<div class="container">
+   <!-- Contendor de seleccion de lineas -->
+   <div class="line__selection-container">
+   <app-kpi-line-info  *ngFor="let line of lines" (LineClicked)="clickLine($event)" [line]="line" ></app-kpi-line-info>
+   </div>
+</div>

@@ -1,0 +1,64 @@
+@import 'variables' ;
+
+.line__container{
+ display: flex;
+ flex-direction: row;
+ border-radius: 5px;
+ height: 100%;
+ width: 100%;
+ margin: 5px;
+}
+
+.line__features{
+ display: flex;
+ flex-direction: column;
+ height: 60vh;
+ width: 35%;
+ margin: 20px 2.5%;
+ border-radius: 5px;
+
+button{
+  height: 30%;
+  width: 90%;
+  background:$button-background-color;
+  margin: 5px 0;
+}
+
+span{
+ font-size:2.5rem;
+ text-align: center;
+}
+
+button:focus{
+ background-image: linear-gradient(white,#eee);
+  font-weight: 600;
+ span{
+ font-size: 3rem;
+ }
+}
+}
+
+.line__chart{
+  width: 55%;
+  height: 60vh;
+  margin: 20px 2.5%;
+}
+
+@media (min-width: 600px) {
+.line__content-container{
+    width: 60%;
+    margin: 1% auto;   
+  }
+
+.line__features{
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+
+  button{
+   height: 25vh;
+   width: 70%;
+   max-width: 120px;
+   }
+}
+}

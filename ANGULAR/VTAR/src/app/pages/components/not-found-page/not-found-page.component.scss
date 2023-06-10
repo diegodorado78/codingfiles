@@ -1,0 +1,21 @@
+main{
+  display: flex;
+  flex-direction: column;
+  height: 80%;
+  align-items: center;
+  margin: 5% auto;
+    p{
+        font-size: 2rem;
+        font-weight: bold;
+        text-align: center;
+    }
+    svg{
+        width: 80%;
+        height: 50%;
+        margin: 0 auto;
+    }
+}
+button{
+  display: flex;
+  align-self: center;
+}

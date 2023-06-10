@@ -1,0 +1,34 @@
+  <form  class="container2">
+    <div class="datePicker__container">
+        <h1> Select Dates for {{message$ |titlecase}}</h1>
+            <div class="form__container">
+                <!-- Start Date -->
+                <mat-form-field >
+                    <mat-label>From</mat-label>
+                      <input matInput  [ngModelOptions]="{standalone: true}"[matDatepicker]="pickerStart" [(ngModel)]="startDate" >
+                      <mat-datepicker-toggle matSuffix [for]="pickerStart"></mat-datepicker-toggle>
+                      <mat-datepicker touchUi="true" #pickerStart startView="multi-year" ></mat-datepicker>
+                  </mat-form-field>
+
+                   <!-- Last Date -->
+                <mat-form-field>
+                    <mat-label>To</mat-label>
+                    <input matInput  [ngModelOptions]="{standalone: true}" [matDatepicker]="pickerFinish"[(ngModel)]="endDate">
+                    <mat-datepicker-toggle matSuffix [for]="pickerFinish"></mat-datepicker-toggle>
+                    <mat-datepicker touchUi="true" #pickerFinish startView="multi-year"  ></mat-datepicker>
+                  </mat-form-field>
+
+                  <!-- buttons -->
+                <div class="datePickerButton__container" [ngSwitch]="message$" >
+                   <!-- Buttons depending on the case to render the trends -->
+                   <button  *ngSwitchCase="'extrusor'" routerLink="trends" type="submit" mat-raised-button  color="bco-activated" (click)="setExtrusorDataSource(newDate)">Select </button>
+                   <button *ngSwitchCase="'die'" routerLink="trends" type="submit" mat-raised-button color="bco-activated" (click)="setDieDataSource(newDate)" >Select </button>
+                   <button *ngSwitchCase="'winder'" routerLink="trends" type="submit" mat-raised-button color="bco-activated" (click)="setWinderDataSource(newDate)" >Select </button>
+                   <button  routerLink="trends" type="submit"  mat-raised-button color="bco-activated" > See last month </button>
+
+                  </div>
+            </div>
+    </div>
+
+ </form>
+

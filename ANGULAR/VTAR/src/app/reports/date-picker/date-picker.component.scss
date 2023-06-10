@@ -1,0 +1,43 @@
+
+.datePicker__container{
+  display: flex;
+  flex-direction: column;
+}
+
+.form__container{
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  height: 80%;
+  margin: 10% auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.datePickerButton__container{
+  display: flex;
+  button{
+    width: auto;
+    margin: 5px 5px;
+    padding: 0 5px;
+  }
+}
+@media (min-width: 768px) {
+
+  .datePicker__container{
+    width: 50%;
+    height: 60vh;
+  }
+
+  .form__container{
+    display: flex;
+    height: 80%;
+    margin: 10% auto 0 auto;
+    justify-content: flex-start;
+    align-content: center;
+    mat-form-field{
+      width: 100%;
+      margin: 5px auto;
+    }
+  }
+}

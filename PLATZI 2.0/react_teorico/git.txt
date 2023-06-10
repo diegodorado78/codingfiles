@@ -1,0 +1,20 @@
+//historia del py y ramas
+git log --all --graph --decorate --oneline
+
+//crear alias
+alias arbolito = "git log --all --graph --decorate --oneline"
+
+//crear tags
+git tag -a v0.1 -m "funcional" "hash"
+
+//mostrar tags y sus relaciones con su commit
+git show-ref --tags
+
+//tags sirven mas en github
+git push origin --tags
+
+//borrar tag
+git tag -d v0.1
+
+//borrar tag en github
+git push origin :refs/tags/v0.1

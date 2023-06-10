@@ -1,0 +1,14 @@
+<app-header  (newToggleEvent)="toggleMenufromLayout($event)" ></app-header>
+
+<mat-sidenav-container class="sidenav__container" autosize>
+  <mat-sidenav  #drawer class="sidenav__content" mode="over">
+    <h3> <strong> Menu</strong>  </h3>
+    <p><a mat-raised-button  routerLink="/reports" > Reports </a></p>
+    <p><a mat-raised-button  routerLink="/kpis" >KPI'S</a></p>
+  </mat-sidenav>
+
+  <app-nav-bar></app-nav-bar>
+
+  <router-outlet></router-outlet>
+
+</mat-sidenav-container>

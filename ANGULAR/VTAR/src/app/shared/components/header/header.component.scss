@@ -1,0 +1,99 @@
+mat-toolbar-row{
+  margin: 0 auto;
+  padding: 0;
+}
+.layout__header{
+  display: grid;
+  grid-template-columns: repeat(8,1fr);
+  color: #f0f0f0;
+  background-color: #272A3A;
+  margin: 0 ;
+}
+
+.header__menu-icon{
+  grid-column: 1/2;
+  display: flex;
+  height: 100%;
+  margin: 0 10px;
+  justify-content: center;
+  padding: auto;
+  mat-icon{
+    width: 30px;
+    height: 30px;
+    font-size: 30px;
+  }
+}
+.header__nav_logo{
+  grid-column: 2/7;
+display: flex;
+  max-height: 100px;
+  width: 100%;
+  margin: 0 ;
+  float: left;
+  img {
+    height: 40px;
+    width: 90%;
+    object-position: left;
+    margin-top: 5px;
+  }
+}
+.header__notification-icon{
+    grid-column: 7/8;
+}
+
+.user__container{
+    grid-column: 8/9;
+    justify-content: center;
+  .header__user-icon{
+    height: 75%;
+    width: 100%;
+    margin: 12.5% 0;
+
+  }
+}
+
+  .example-sidenav-content {
+    display: flex;
+    width: 20%;
+    height: 20%;
+
+    align-items:flex-start;
+    justify-content: left;
+  }
+
+  .example-sidenav {
+    padding: 20px;
+  }
+  .sidenav__container{
+    position: absolute;
+    z-index: 3;
+    height: 100vh;
+    opacity:0.9;
+    top:80px;
+    left:1px;
+  }
+
+@media (min-width: 768px) {
+  .layout__header{
+  height: 100%;
+  margin: 0 auto;
+  justify-content:center
+  }
+
+  .header__menu{
+    height: 80%;
+    margin: 10% 5%;
+  }
+
+.header__nav_logo{
+  margin:  auto 0;
+  img {
+    margin: 5% 0;
+    height: 50px;
+  }
+}
+.header__notification-icon{
+  justify-self: end;
+  margin: 0 5%;
+}
+}
